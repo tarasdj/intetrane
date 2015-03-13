@@ -3,10 +3,7 @@
 function me_menu(){
   $items['table'] = array(
 	'title' => 'Custom table',
-    'page callback' => 'me_custom_table',
-	'access callback' => TRUE,
-	'menu_name' => 'main-menu',
-	'file' => 'me.pages.inc',        
+    'page callback' => 'me_custom_table',     
     'options' => array('attributes' => array('class' => array('test-class'))), 		
   );
   return $items;
