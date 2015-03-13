@@ -1,0 +1,10 @@
+name = Demo
+description = Entity Demo project
+core = 7.x
+package = Examples
+version = 7.x
+ 
+dependencies[] = entity
+ 
+files[] = demo.install
+files[] = demo.module

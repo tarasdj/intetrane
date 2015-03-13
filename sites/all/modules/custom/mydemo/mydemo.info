@@ -1,0 +1,3 @@
+name = mydemo
+description = Демо ajax request.
+core = 7.x

@@ -1,0 +1,13 @@
+<?php
+//Implements me_menu();
+function me_menu(){
+  $items['table'] = array(
+	'title' => 'Custom table',
+    'page callback' => 'me_custom_table',
+	'access callback' => TRUE,
+	'menu_name' => 'main-menu',
+	'file' => 'me.pages.inc',        
+    'options' => array('attributes' => array('class' => array('test-class'))), 		
+  );
+  return $items;
+}

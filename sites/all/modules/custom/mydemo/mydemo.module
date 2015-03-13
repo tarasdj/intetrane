@@ -1,0 +1,60 @@
+<?php
+/**
+ * @file
+ * Demo module, Basic Ajax request.
+ */
+ 
+/**
+ * Implements hook_menu().
+ */
+function mydemo_menu()
+{
+    return array(
+        'mydemo' => array(
+		    'title' => 'demo ajax',
+            'page callback' => 'mydemo_page_callback',
+            'access callback' => TRUE,
+			'main_menu' => 'main-menu',
+			'options' => array('attributes' => array('class' => array('test-class'))), 
+        ),
+        'mydemo/ajax' => array(
+            'page callback' => 'mydemo_ajax_callback',
+            'access callback' => TRUE,
+            'type' => MENU_CALLBACK,
+            'delivery callback' => 'mydemo_ajax_delivery_callback',
+        ),
+    );
+}
+ 
+/**
+ * Demo page callback.
+ */
+function mydemo_page_callback()
+{
+    $path = drupal_get_path('module', 'mydemo');
+    drupal_add_js($path . '/ajax.js');
+ 
+    $output = '<p>This is an ajax demo link: ';
+    $output .= l('Click me ! ', 'mydemo/page', 
+                      array(
+                           'fragment' => 'nojs',
+                           'attributes' => array('id' => array('demo-ajax-link'))
+                      )
+    );
+    $output .= '</p>';
+ 
+    return $output;
+}
+ 
+/**
+ * Demo Ajax callback.
+ */
+function mydemo_ajax_callback()
+{
+    $response = array(
+        'status' => 1,
+        'data' => 'Hello ! ',
+    );
+ 
+    return drupal_json_output($response);
+}

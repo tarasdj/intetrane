@@ -1,0 +1,32 @@
+<?php
+/**
+ * Implements hook_entity_info().
+ */
+function demo_entity_info() {
+
+  $info = array();
+
+  $info['project'] = array(
+    'label' => t('Project'),
+    'base table' => 'demo_projects',
+    'entity keys' => array(
+      'id' => 'id',
+      'label' => 'name',
+    ),
+    'module' => 'demo',
+  );
+
+  return $info;
+}
+
+function demo_menu(){
+  $items['Entity'] = array(
+        'title' => 'Demo Entity',
+        'page callback' => 'demo_entity_page',
+        'access callback' => TRUE,
+		'menu_name' => 'main-menu',
+        'file' => 'demo.pages.inc',
+		'options' => array('attributes' => array('class' => array('test-class'))), 
+  );
+  return $items;
+}

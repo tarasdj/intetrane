@@ -1,0 +1,7 @@
+name = Handle
+description = Module to allows handle to views
+package = Handle
+core = 7.x
+dependencies[] = ctools
+files[] = views/handle_handler_handlername.inc
+files[] = views/handle.views.inc
